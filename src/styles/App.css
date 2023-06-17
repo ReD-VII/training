@@ -1,0 +1,11 @@
+.App {
+  text-align: center;
+  /* overflow: hidden; */
+  transition: all 0.3s ease;
+}
+.col{
+  color: #4b4b4b;
+  color: solid 1px rgb(185, 185, 185);
+  color: #f0f8ff25;
+}
+
