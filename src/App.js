@@ -6,7 +6,7 @@ import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
 // Styles
 import './styles/App.css';
 
-import { ThemeProvider } from 'styled-components';
+
 
 // ROTAS
 import Home from './pages/Home'
@@ -18,31 +18,60 @@ import Layout from './layout';
 import Training from './pages/Training';
 
 
+// HOOKS
+import { useTheme } from './hooks/useTheme'; 
+
+
+import ThemeContext from './context/ThemeContext';
+
+
+
+
+
+
+
 function App() {
 
   const [user, setUser] = useState('')
 
+  // SETANDO O THEME
+  const { currentTheme } = useTheme('dark') //dark  light
+
+
+
+
+
+
+
+
 
   return (
     <div className="App">
-      <BrowserRouter>
-        <Routes>
-          <Route path='/' element={<Layout />}>
-            {/* <Route path='/' element={user ? <Layout /> : <Navigate to='/login' />}> */}
-            <Route index element={<Home />} />
-            <Route path='register' element={<Register />} />
-            <Route path='singin' element={<SingIn />} />
-            <Route path='training' element={<Training />} />
-            <Route path='about' element={<About />} />
-            <Route path='*' element={<NotFound />} />
-          </Route>
-          <Route path='login' element={!user ? <SingIn /> : <Navigate to='/' />} />
-          <Route path='register' element={!user ? <Register /> : <Navigate to='/' />} />
+      <ThemeContext.Provider value={currentTheme}>
 
-        </Routes>
-      </BrowserRouter>
+        <BrowserRouter>
+          <Routes>
+            <Route path='/' element={<Layout />}>
+              {/* <Route path='/' element={user ? <Layout /> : <Navigate to='/login' />}> */}
+              <Route index element={<Home />} />
+              <Route path='register' element={<Register />} />
+              <Route path='singin' element={<SingIn />} />
+              <Route path='training' element={<Training />} />
+              <Route path='about' element={<About />} />
+              <Route path='*' element={<NotFound />} />
+            </Route>
+            <Route path='login' element={!user ? <SingIn /> : <Navigate to='/' />} />
+            <Route path='register' element={!user ? <Register /> : <Navigate to='/' />} />
+
+          </Routes>
+        </BrowserRouter>
+
+      </ThemeContext.Provider>
+
     </div>
   );
+
+
 }
 
 export default App;

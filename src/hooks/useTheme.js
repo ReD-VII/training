@@ -1,6 +1,6 @@
 
 
-import React, { useEffect, useState } from 'react'
+import  { useEffect, useState } from 'react'
 
 
 
@@ -13,18 +13,44 @@ export const useTheme = (op) => {
    
     const [ theme, setTheme ] = useState(null)
         
-    const [ dark, setDark ] = useState({
+    const dark = {
         bg: '#0D1117',
         color: '#ccc',
         lineColor: 'solid 1px #21262D',
         marginTopConf: '1px solid #f0f8ff25',
-    })
-    const [ light ] = useState({
+
+        // TAGS
+        tagColor: '#757575',
+        tacCodeBG: '#161B22',
+
+
+        // Paginas de treinamento
+        titleColor: '#ccc',
+        headerP: '#757575',
+
+
+
+
+    }
+    const light = {
         bg: '#fff',
         color: '#4f4f4f',
         lineColor: '1px solid #ccc',
         marginTopConf: '1px solid #ccc',
-    })
+
+        // TAGS
+        tagColor: '#757575',
+        tacCodeBG: '#161B22',
+
+
+        // Paginas de treinamento
+        titleColor: '#292929',
+        headerP: '#757575',
+
+    }
+
+
+
     // CLEANUP
     const [cancelled, setCancelled] = useState(false)
 
@@ -37,25 +63,28 @@ export const useTheme = (op) => {
     }
 
     const chargeTheme = () => {
-        // console.log('PAaaaa')
-        if(op === 'dark'){
+
+        checkIfCancelled() 
+        
+        if(theme === 'dark'){
             setCurrentTheme(dark)
         }else if(op === 'light'){
             setCurrentTheme(light)
         }
+        setCancelled(true)
     }
 
     useEffect(() => {
         setTheme(op)
-        chargeTheme()
-    }, [theme])
+        chargeTheme()   
+    }, [theme, op])
 
     useEffect(() => {
         setCancelled(true)
     }, [])
 
 
-    return {theme, currentTheme}
+    return { currentTheme}
 
 }
 

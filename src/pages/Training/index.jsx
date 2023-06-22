@@ -1,29 +1,40 @@
-import React from 'react'
+// TRAINING
+
+import React, { useContext } from 'react'
 
 // Styles
-import { Conteiner } from './styles/styles_index'
-import Procv from './Procv'
+import { Conteiner, ConteinerTags, ConteinerTraining } from './styles/styles_index'
 
-import { useEffect, useRef } from 'react';
-import { useLocation } from 'react-router-dom';
+// CONTEXTO
+import ThemeContext from '../../context/ThemeContext'
+
+// ICONES
 
 
+import Search from '../../components/Search';
 
 const Training = () => {
-    const location = useLocation();
-    const parentRef = useRef(null);
-  
-    useEffect(() => {
-      if (parentRef.current) {
-        parentRef.current.scrollTo(0, 0);
-      }
-    }, [location]); 
+    const currentTheme = useContext(ThemeContext)
 
     return (
-        <Conteiner ref={parentRef}>
-            <Procv />
-            
-        </Conteiner>
+        <ConteinerTraining props={currentTheme}>
+
+            <div className='boxes_conteiner'>
+                <Search />
+            </div>
+            <div className='boxes_conteiner'>
+                <div className='training_screen'></div>
+
+                <div className='boxes--i'>
+                    <div className='--i'></div>
+                    <div className='--i'></div>
+                    <div className='--i'></div>
+                    <div className='--i'></div>
+                </div>
+                
+            </div>
+
+        </ConteinerTraining >
     )
 }
 

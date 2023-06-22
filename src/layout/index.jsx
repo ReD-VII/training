@@ -1,5 +1,8 @@
-import React, { useEffect, useState } from 'react'
-import { Link, Outlet, useNavigate, useLocation } from 'react-router-dom'
+// LAYOUT 
+
+
+import React, { useContext, useEffect, useRef  } from 'react'
+import { Link, Outlet, useLocation } from 'react-router-dom'
 
 //Styles
 import { Conteiner } from './styles'
@@ -17,33 +20,69 @@ import { FaPlayCircle } from "react-icons/fa";
 import { IoSettingsOutline } from "react-icons/io5";
 
 
+import ThemeContext from '../context/ThemeContext'
+
+
+
+
+
+
+
+
+
+
+
 
 
 const Layout = () => {
 
-  const { currentTheme } = useTheme('dark') //dark  light
+  // RECEBENDO O THEME POR CONTEXTO
+  const themeCurrent = useContext(ThemeContext)
+
+
+
+
 
   const location = useLocation()
+  const scrollableRef = useRef(null);
 
-
-
-  // THEME
   useEffect(() => {
-    console.log(currentTheme)
+    // Obtém o elemento scrollable
+    const scrollableElement = scrollableRef.current;
 
-  }, [currentTheme])
+    // Define a posição do scroll para o topo (0)
+    scrollableElement.scrollTop = 0;
+
+    // Adicione event listeners ou qualquer lógica adicional aqui, se necessário
+
+    // Limpe o efeito quando o componente for desmontado
+    return () => {
+      // Faça qualquer limpeza necessária aqui
+    };
+  }, [location]);
 
 
-  // NAVEGAÇÂO
-  // useEffect(() => {
-  //   window.scrollTo(0, 0)
-  // }, [])
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
 
   return (
-    <Conteiner props={currentTheme}>
+    <Conteiner props={themeCurrent}>
 
       {/* CABEÇALHO */}
       <div className='boxes'>
@@ -88,7 +127,7 @@ const Layout = () => {
         <div className='btn_config'><IoSettingsOutline className='icon_config' /></div>
 
       </div>
-      <div className='boxes'>
+      <div className='boxes' ref={scrollableRef}>
         <Outlet />
       </div>
       <div className='boxes'>
