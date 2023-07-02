@@ -10,7 +10,7 @@ export const Conteiner = styled.div`
     align-items: center;
     width: 300px;
     height: 35px;
-    background: #eaeaea;
+    background: ${({ props }) => props ? props.blsInputs : '#f4f4f4'};
     border-radius: 0.3em;
     padding: 5px;
     padding-left: 15px;
@@ -38,6 +38,10 @@ export const Conteiner = styled.div`
     }
 
     @media only screen and (max-device-width: 768px) {
-        width: 100%;
+        width: 92%;
+        height: 50px;
+        margin: auto;
+
+
     }
 `

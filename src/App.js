@@ -23,6 +23,11 @@ import { useTheme } from './hooks/useTheme';
 
 
 import ThemeContext from './context/ThemeContext';
+import SignIn from './pages/SignIn';
+
+
+// Treinamentos
+import Devolucao from './pages/Training/Devolucao';
 
 
 
@@ -35,7 +40,7 @@ function App() {
   const [user, setUser] = useState('')
 
   // SETANDO O THEME
-  const { currentTheme } = useTheme('dark') //dark  light
+  const { currentTheme } = useTheme('light') // dark  light
 
 
 
@@ -55,12 +60,19 @@ function App() {
               {/* <Route path='/' element={user ? <Layout /> : <Navigate to='/login' />}> */}
               <Route index element={<Home />} />
               <Route path='register' element={<Register />} />
-              <Route path='singin' element={<SingIn />} />
               <Route path='training' element={<Training />} />
               <Route path='about' element={<About />} />
+              
+              
+              {/* TREINAMENTOS */}
+              <Route path='devolucao' element={<Devolucao />} />
+              
+              
+              
               <Route path='*' element={<NotFound />} />
+
             </Route>
-            <Route path='login' element={!user ? <SingIn /> : <Navigate to='/' />} />
+            <Route path='signin' element={!user ? <SignIn /> : <Navigate to='/' />} />
             <Route path='register' element={!user ? <Register /> : <Navigate to='/' />} />
 
           </Routes>

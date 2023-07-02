@@ -1,12 +1,16 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { Conteiner } from './styles'
 
-
+import ThemeContext from '../../context/ThemeContext';
 
 import { BiSearchAlt } from "react-icons/bi";
+
 const Search = () => {
+
+  const currenTheme = useContext(ThemeContext)
+
   return (
-    <Conteiner>
+    <Conteiner props={currenTheme}>
         <form>
             <input type="text" placeholder='Pesquisar'/>
         </form>

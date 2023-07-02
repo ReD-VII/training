@@ -1,6 +1,6 @@
 
 
-import  { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 
 
 
@@ -10,9 +10,9 @@ import  { useEffect, useState } from 'react'
 
 
 export const useTheme = (op) => {
-   
-    const [ theme, setTheme ] = useState(null)
-        
+
+    const [theme, setTheme] = useState(null)
+
     const dark = {
         bg: '#0D1117',
         color: '#ccc',
@@ -28,7 +28,15 @@ export const useTheme = (op) => {
         titleColor: '#ccc',
         headerP: '#757575',
 
+        // Formularios 
+        bgInputs: '#11151d',
 
+        // Blocos de Fundo
+        blsInputs: '#11151d',
+
+
+       // BG BOX FEED POST
+       bgBoxFeed: 'red', 
 
 
     }
@@ -47,6 +55,16 @@ export const useTheme = (op) => {
         titleColor: '#292929',
         headerP: '#757575',
 
+        // Formularios
+        bgInputs: '#f4f4f4',
+
+        // Blocos de Fundo
+        blsInputs: '#f4f4f4',
+
+
+       // BG BOX FEED POST
+       bgBoxFeed: 'red', 
+
     }
 
 
@@ -54,7 +72,7 @@ export const useTheme = (op) => {
     // CLEANUP
     const [cancelled, setCancelled] = useState(false)
 
-    const [ currentTheme, setCurrentTheme ] = useState(null)
+    const [currentTheme, setCurrentTheme] = useState(null)
 
     function checkIfCancelled() {
         if (cancelled) { // SE CANCELLED FOR VERDADEIRO ELE ENTRA NESSA FUNÇÃO E SAI DO PROGRAMA FINALIZANDO A OPERAÇÃO
@@ -64,11 +82,11 @@ export const useTheme = (op) => {
 
     const chargeTheme = () => {
 
-        checkIfCancelled() 
-        
-        if(theme === 'dark'){
+        checkIfCancelled()
+
+        if (theme === 'dark') {
             setCurrentTheme(dark)
-        }else if(op === 'light'){
+        } else if (op === 'light') {
             setCurrentTheme(light)
         }
         setCancelled(true)
@@ -76,7 +94,7 @@ export const useTheme = (op) => {
 
     useEffect(() => {
         setTheme(op)
-        chargeTheme()   
+        chargeTheme()
     }, [theme, op])
 
     useEffect(() => {
@@ -84,7 +102,7 @@ export const useTheme = (op) => {
     }, [])
 
 
-    return { currentTheme}
+    return { currentTheme }
 
 }
 

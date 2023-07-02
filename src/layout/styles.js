@@ -144,6 +144,10 @@ export const Conteiner = styled.div`
         right: 0;
         z-index: 2;
         border-left: ${({ props }) => props ? props.lineColor : 'solid 1px rgba(242, 242, 242, 1)'};
+
+
+        display: flex;
+
     }
 
 

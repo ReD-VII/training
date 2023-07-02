@@ -1,7 +1,7 @@
 // LAYOUT 
 
 
-import React, { useContext, useEffect, useRef  } from 'react'
+import React, { useContext, useEffect, useRef } from 'react'
 import { Link, Outlet, useLocation } from 'react-router-dom'
 
 //Styles
@@ -23,8 +23,8 @@ import { IoSettingsOutline } from "react-icons/io5";
 import ThemeContext from '../context/ThemeContext'
 
 
-
-
+// Components
+import ShortProfile from '../components/ShortProfile'
 
 
 
@@ -87,7 +87,9 @@ const Layout = () => {
       {/* CABEÇALHO */}
       <div className='boxes'>
         <div className='header_boxes'>
-          <img src={logo} alt="" />
+          <Link to={'/'}>
+            <img src={logo} alt="logo" />
+          </Link>
         </div>
         <div className='header_boxes'></div>
         <div className='header_boxes'></div>
@@ -131,7 +133,7 @@ const Layout = () => {
         <Outlet />
       </div>
       <div className='boxes'>
-        BOX 4
+        <ShortProfile />
       </div>
 
     </Conteiner>
