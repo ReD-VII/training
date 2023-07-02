@@ -4,14 +4,14 @@ import { TrainigStyleConfig } from './styles/StyledPages'
 
 
 // COMPONENTES
-import FloatingBar from '../../components/FloatingBar/FloatingBar'
+import Table from '../../components/PageComponents/Table/'
 
 
 import banner from '../../assets/gif/banner_training_devolucao.gif'
 import img2 from '../../assets/gif/banner_training_devolucao_fluxo.gif'
 import img3 from '../../assets/gif/banner_training_devolucao_fluxo_2.gif'
-import Table from '../../components/Table'
 import ElemetAlert from '../../components/PageComponents/ElementAlert'
+import FloatingBar from '../../components/PageComponents/FloatingBar/FloatingBar'
 
 
 
