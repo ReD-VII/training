@@ -1,14 +1,10 @@
 import { styled } from "styled-components";
 
-
-
-
-
 // Desktop
-import banner from '../../assets/svg/banner_training.svg'
+import banner from '../../../assets/svg/banner_training.svg'
 
 // Mobile
-import bannerMobile from '../../assets/svg/banner_training_mobile.svg'
+import bannerMobile from '../../../assets/svg/banner_training_mobile.svg'
 
 
 

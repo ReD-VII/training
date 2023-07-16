@@ -5,9 +5,9 @@ import { styled } from "styled-components";
 
 export const TrainigStyleConfig = styled.div`
     width: 100%;
+    height: auto;
     padding: 40px; 
-    padding-bottom: 100px;
-    
+
     
     header{
 
@@ -28,10 +28,13 @@ export const TrainigStyleConfig = styled.div`
     main{
         section{
             
-            margin: 50px 0;
+            margin: 20px 0;
             text-align: left;
 
 
+            h2{
+                /* text-transform: uppercase; */
+            }
 
 
             img{
@@ -39,10 +42,15 @@ export const TrainigStyleConfig = styled.div`
                 margin: 20px 0;
             }
 
-
+            .modalImage{
+                /* background: red; */
+                margin: auto;
+                width: 20%;
+            }
 
             p{
                 margin: 10px 0px 20px 0px;
+
             }
             .lista{
                 text-align: left;
@@ -91,6 +99,22 @@ export const TrainigStyleConfig = styled.div`
                 margin: 0px 0px 20px 0px;
             }
         }
+
+        main{
+            section{
+                .modalImage{
+                    /* background: red; */
+                    margin: auto;
+                    width: 70%;
+                } 
+            }
+        }
+        
+
+        footer{
+
+        }
+
     }
 
 

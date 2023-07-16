@@ -1,5 +1,4 @@
 import React from 'react'
-import { TrainingConteiner } from './styles'
 import Search from '../../components/Search'
 
 
@@ -21,6 +20,7 @@ import BoxFeedPosts from '../../components/BoxFeedPosts'
 
 // ICONES
 import { IoFlagOutline, IoLogoLaravel, IoLogoOctocat, IoSchoolSharp } from "react-icons/io5";
+import { TrainingConteiner } from './styles/styles'
 
 
 const Training = () => {
@@ -77,13 +77,14 @@ const Training = () => {
                         tags={'#operacional'}
                     />
                     <BoxFeedPosts
-                        img={imgTreiOutros2}
-                        title={'Treinamento devolução'}
-                        date={'Data: 25/06/2023'}
+                        link={'/entrega'}
+                        img={imgTreiEnt}
+                        title={'Treinamento Entrega LM'}
+                        date={'Data: 09/07/2023'}
                         tags={'#operacional'}
                     />
                     <BoxFeedPosts
-                        img={imgTreiEnt}
+                        img={imgTreiOutros}
                         title={'Treinamento entrega'}
                         date={'Data: 25/06/2023'}
                         tags={'#operacional'}

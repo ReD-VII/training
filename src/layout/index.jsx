@@ -18,6 +18,7 @@ import { FaHome, FaSitemap, FaStreetView } from "react-icons/fa";
 import { FaMedal } from "react-icons/fa";
 import { FaPlayCircle } from "react-icons/fa";
 import { IoSettingsOutline } from "react-icons/io5";
+import { FaMapSigns } from 'react-icons/fa'
 
 
 import ThemeContext from '../context/ThemeContext'
@@ -114,8 +115,8 @@ const Layout = () => {
               </Link>
             </li>
             <li>
-              <Link>
-                <FaSitemap className='icon' />
+              <Link to='maps'>
+                <FaMapSigns className='icon' />
               </Link>
             </li>
             <li>

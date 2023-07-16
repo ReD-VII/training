@@ -15,7 +15,8 @@ import Register from './pages/Register'
 import SingIn from './pages/SingIn'
 import NotFound from './pages/NotFound';
 import Layout from './layout';
-import Training from './pages/Training';
+import Training from './pages/Training/';
+import Maps from './pages/Maps';
 
 
 // HOOKS
@@ -28,6 +29,7 @@ import SignIn from './pages/SignIn';
 
 // Treinamentos
 import Devolucao from './pages/Training/Devolucao';
+import Entrega from './pages/Training/Entrega';
 
 
 
@@ -61,11 +63,13 @@ function App() {
               <Route index element={<Home />} />
               <Route path='register' element={<Register />} />
               <Route path='training' element={<Training />} />
+              <Route path='maps' element={<Maps />} />
               <Route path='about' element={<About />} />
               
               
               {/* TREINAMENTOS */}
               <Route path='devolucao' element={<Devolucao />} />
+              <Route path='entrega' element={<Entrega />} />
               
               
               
