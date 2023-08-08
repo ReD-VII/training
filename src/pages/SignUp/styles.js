@@ -27,7 +27,6 @@ export const ConteinerSignIn = styled.div`
         display: flex;
         align-items: center;
         justify-content: center;
-        flex-direction: column;
         width: 40%;
         height: 100%;
         /* background: #000; */
@@ -120,28 +119,6 @@ export const ConteinerSignIn = styled.div`
         .signup-link a {
             text-decoration: none;
             color: ${({ props }) => props ? props.color : '#000'};
-        }
-
-
-
-
-
-        .erro_msg{
-            /* position: absolute; */
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            width: auto;
-            height: 50px;
-            /* background: red; */
-            /* margin: 20px auto; */
-            top: 20px;
-            
-
-            p{
-                color: #6B7280;
-                font-weight: 700;
-            }
         }
     }
 

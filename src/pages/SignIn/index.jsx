@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { ConteinerSignIn } from './styles'
 
 
@@ -6,6 +6,8 @@ import { ConteinerSignIn } from './styles'
 
 import backImg from '../../assets/svg/bgSignIn.svg'
 import ThemeContext from '../../context/ThemeContext';
+import { Link } from 'react-router-dom';
+import { useAuthentication } from '../../hooks/useUserFirebase';
 
 
 
@@ -13,13 +15,43 @@ const SignIn = () => {
 
     const [showPassword, setShowPassword] = useState(false);
     const themeCurrent = useContext(ThemeContext)
+    const [error, setError] = useState('')
+    const [formData, setFormData] = useState({
+        passWord: '',
+        userMail: ''
+    })
+    const { login, loading, error: authError } = useAuthentication()
+
+
+
+
+
+
+
+
     const handleTogglePassword = () => {
         setShowPassword(!showPassword);
     }
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault()
+        console.log(formData)
+        const resp = login(formData)
     }
-    
+
+
+    useEffect(() => {
+        setError(authError)
+        console.log(error)
+    }, [authError])
+
+
+
+
+
+
+
+
+
     return (
         <ConteinerSignIn props={themeCurrent}>
             <div className='boxsConteiner'>
@@ -29,7 +61,7 @@ const SignIn = () => {
                 <form className="form" onSubmit={handleSubmit}>
                     <p className="form-title">Sign in to your account</p>
                     <div className="input-container">
-                        <input placeholder="Enter email" type="email" />
+                        <input placeholder="Enter email" type="email" onChange={(e) => setFormData({ ...formData, userMail: e.target.value })} />
                         <span>
                             <svg stroke="currentColor" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path
@@ -40,7 +72,7 @@ const SignIn = () => {
                         </span>
                     </div>
                     <div className="input-container">
-                        <input placeholder="Enter password" type={showPassword ? "text" : "password"} />
+                        <input placeholder="Enter password" type={showPassword ? "text" : "password"} onChange={(e) => setFormData({ ...formData, passWord: e.target.value })} />
                         <span onClick={handleTogglePassword}>
                             <svg stroke="currentColor" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 {showPassword ? (
@@ -64,9 +96,18 @@ const SignIn = () => {
                     </button>
                     <p className="signup-link">
                         No account?
-                        <a href=""> Sign up</a>
+                        <Link to={'/register'}>
+                            Sign up
+                        </Link>
+
                     </p>
                 </form>
+                <div className='erro_msg'>
+                    {authError &&
+                        <p >{authError}</p>
+                    }
+                </div>
+
             </div>
         </ConteinerSignIn>
     )

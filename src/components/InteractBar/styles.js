@@ -10,7 +10,7 @@ export const ContentInteract = styled.div`
     width: 100%;
     height: 30px;
     margin: 40px auto;
-    /* background: yellowgreen;     */
+    background: yellowgreen;    
     /* padding: 5px; */
 
 

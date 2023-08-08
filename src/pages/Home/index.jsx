@@ -1,6 +1,14 @@
 import React from 'react'
+import { useAuthentication } from '../../hooks/useUserFirebase'
 
 const Home = () => {
+
+  const { logout } = useAuthentication()
+
+
+
+
+
   return (
     <div style={{
       width: '100%',
@@ -14,7 +22,12 @@ const Home = () => {
         background: 'blue',
         color: '#fff',
         textAlign: 'left'
-      }}>Abelha</div>
+      }}>
+          <button onClick={() => logout()}>Sair</button>
+
+
+
+      </div>
 
       <div style={{
         width: '100%',

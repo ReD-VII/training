@@ -131,14 +131,18 @@ export const TrainingConteiner = styled.div`
 
         
         .--g{
-            display: flex;
+            /* display: flex;
             flex-wrap: wrap;
             flex-direction: row;
             justify-content: space-between;
             width: 100%;
-            height: auto;
+            height: auto; */
             /* background: yellowgreen; */
-            
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            grid-gap: 10px;
+            max-width: 100%; /* Defina um valor máximo para a largura da div contêiner */
+            margin: 0 auto; /* Centralizar a div contêiner */
         }
     }
 
@@ -231,6 +235,11 @@ export const TrainingConteiner = styled.div`
 
             // Area das cards
             .--g{
+                display: flex;
+                flex-wrap: wrap;
+                width: 100%;
+                height: auto;
+              /* background: yellowgreen; */
                 flex-direction: column;
                 justify-content: center;
                 align-items: center;
