@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
-// ROTAS
-import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
+
 
 // Styles
 import './styles/App.css';
@@ -9,32 +8,45 @@ import './styles/App.css';
 
 
 // ROTAS
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
+
 import Home from './pages/Home'
 import About from './pages/About/'
-import SignUp from './pages/SignUp'
-// import SingIn from './pages/SingIn'
 import NotFound from './pages/NotFound';
 import Layout from './layout';
 import Training from './pages/Training/';
 import Maps from './pages/Maps';
+import { SignUp, SignIn } from './pages/SignInUp';
 
 
 // HOOKS
 import { useTheme } from './hooks/useTheme';
 
 
+
 import ThemeContext from './context/ThemeContext';
-import SignIn from './pages/SignIn';
+
 
 
 // Treinamentos
 import Devolucao from './pages/Training/Devolucao';
 import Entrega from './pages/Training/Entrega';
 
+
+
 // Context
 import { AuthProvider, userAuthProvider } from './context/UserAuthContext';
+
+
+
+// Configs
 import { useAuthentication } from './hooks/useUserFirebase';
 import { onAuthStateChanged } from 'firebase/auth';
+
+
+
+// Components
+import LoadingComponent from './components/Loading';
 
 
 
@@ -42,16 +54,17 @@ import { onAuthStateChanged } from 'firebase/auth';
 
 function App() {
 
-  const [user, setUser] = useState(null)
   // SETANDO O THEME
   const { currentTheme } = useTheme('light') // dark  light
-
+  
+  // AUTENTICAÇÃO
   const { auth } = useAuthentication()
+  
+  // USUARIO
+  const [user, setUser] = useState(undefined)
+  const loadingUser = user === undefined; // se "user" for igual "undefined" ele retorna TRUE
+  //Com isso o carregamento e iniciado ja que na linha 63 ele verifica se loadingUser e verdadeiro
 
-  const loadingUser = user === undefined;
-
-  const mamao = process.env.REACT_APP_API_TEST
-  console.log(mamao)
 
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {
@@ -60,44 +73,41 @@ function App() {
   }, [auth]);
 
   if (loadingUser) {
-    return <p>Carregando...</p>;
+    return <LoadingComponent/>
   }
 
   return (
     <div className="App">
       <ThemeContext.Provider value={currentTheme}>
-        <AuthProvider value={{user}} >
+        <AuthProvider value={{ user }} >
 
 
-        <BrowserRouter>
-          <Routes>
-            <Route path='/' element={<Layout />}>
-              {/* <Route path='/' element={user ? <Layout /> : <Navigate to='/login' />}> */}
-              <Route index element={user ? <Home /> : <Navigate to='/signin' />} />
-
-              {/* <Route index element={!user ? <Home /> : <Navigate to='/' />} /> */}
-              <Route path='training' element={<Training />} />
-              {/* <Route path='training' element={!user ? <Training /> : <Navigate to='/' />} /> */}
-              <Route path='maps' element={<Maps />} />
-              {/* <Route path='training' element={!user ? <Maps /> : <Navigate to='/' />} /> */}
-              <Route path='about' element={<About />} />
-              {/* <Route path='training' element={!user ? <About /> : <Navigate to='/' />} /> */}
+          <BrowserRouter>
+            <Routes>
+              <Route path='/' element={user ? <Layout /> : <Navigate to='/signin' />}>
 
 
-              {/* TREINAMENTOS */}
-              <Route path='devolucao' element={<Devolucao />} />
-              <Route path='entrega' element={<Entrega />} />
+                <Route index element={<Home />} />
+                <Route path='training' element={<Training />} />
+                <Route path='maps' element={<Maps />} />
+                <Route path='about' element={<About />} />
 
 
+                {/* TREINAMENTOS */}
+                <Route path='devolucao' element={<Devolucao />} />
+                <Route path='entrega' element={<Entrega />} />
 
-              <Route path='*' element={<NotFound />} />
 
-            </Route>
-            <Route path='signin' element={!user ? <SignIn /> : <Navigate to='/' />} />
-            <Route path='register' element={!user ? <SignUp /> : <Navigate to='/' />} />
+                <Route path='*' element={<NotFound />} />
 
-          </Routes>
-        </BrowserRouter>
+              </Route>
+
+              {/* USER */}
+              <Route path='signin' element={!user ? <SignIn /> : <Navigate to='/' />} />
+              <Route path='register' element={!user ? <SignUp /> : <Navigate to='/' />} />
+
+            </Routes>
+          </BrowserRouter>
 
 
         </AuthProvider>

@@ -187,6 +187,7 @@ const Devolucao = () => {
             <footer>
                 <p></p>
             </footer>
+            
         </TrainigStyleConfig>
     )
 }

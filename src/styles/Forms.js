@@ -8,7 +8,10 @@ export const ConteinerSignIn = styled.div`
     width: 100vw;
     height: 100vh;
     background: ${({ props }) => props ? props.bg : '#fff'};
-
+        img{
+            width: 90%;
+            margin: auto;
+        }
     .boxsConteiner:nth-child(1){
         display: flex;
         align-items: center;
@@ -18,15 +21,13 @@ export const ConteinerSignIn = styled.div`
         /* background: #000; */
         margin: auto;
         margin-left: 0;
-        img{
-            width: 90%;
-            margin: auto;
-        }
+
     }
     .boxsConteiner:nth-child(2){
         display: flex;
         align-items: center;
         justify-content: center;
+        flex-direction: column;
         width: 40%;
         height: 100%;
         /* background: #000; */
@@ -106,6 +107,9 @@ export const ConteinerSignIn = styled.div`
             text-transform: uppercase;
             border: 0;
         }
+        .submit:hover{
+            background-color: #ff4c4c;
+        }
 
         .signup-link {
             color: #6B7280;
@@ -120,29 +124,74 @@ export const ConteinerSignIn = styled.div`
             text-decoration: none;
             color: ${({ props }) => props ? props.color : '#000'};
         }
+
+
+
+        .erro_msg{
+            /* position: absolute; */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: auto;
+            height: 50px;
+            /* background: red; */
+            /* margin: 20px auto; */
+            top: 20px;
+            
+
+            p{
+                color: #6B7280;
+                font-weight: 700;
+            }
+        }
+
+
     }
 
     
     @media only screen and (max-device-width: 768px) {
+        flex-direction: column !important;
+
+
+        .logoMobile{
+            
+            
+            img{
+                width: 50%;
+                margin: 0;
+                margin-top: 20%;
+            }
+        }
+
+
+
         .boxsConteiner:nth-child(1){
             display: none;
             background: red;
             width: 0;
+            margin: 0;
+
+
         }
         .boxsConteiner:nth-child(2){
+            justify-content: flex-start;
             width: 100%;
             height: 100% !important;
             padding: 0;
             /* background: #050505; */
 
-
+  
+            .login{
+                margin-top: 20% !important;
+                /* background: red; */
+            }
             .form {
                 width: 100%;
                 margin: 0;
                 /* width: 100vw !important;
                 height: 100%; */
                 /* background: yellowgreen; */
-
+                
                 input{
                     margin: 5px auto;
 
