@@ -31,10 +31,21 @@ const ShortProfile = () => {
             <li>{user ? user.displayName : <>usuario deslogado</>}</li>
           </p>
           <p>
-            <li>mail@mail.com</li>
+            <li>{user ? user.email : <>usuario deslogado</>}</li>
           </p>
+          <button
+            style={{
+              border: 'none',
+              width: '20%',
+              background: 'orange',
+              marginLeft: '5px',
+              borderRadius: '4px',
+              color: '#fff',
+            }}
+            onClick={() => logout()}>
+            Sair
+          </button>
         </div>
-      <button onClick={() => logout()}>Sair</button>
       </ShortProfileConteynerStyle>
     </>
   )

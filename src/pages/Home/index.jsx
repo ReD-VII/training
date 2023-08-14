@@ -1,66 +1,75 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import { HomeContent } from '../../styles/GlobalStyles'
+import { AuthProvider, useAuthValue } from '../../context/UserAuthContext'
+import { onAuthStateChanged } from 'firebase/auth'
 import { useAuthentication } from '../../hooks/useUserFirebase'
-
+import GraficoPontos from '../../components/GraficoPontos'
 const Home = () => {
 
-  const { logout } = useAuthentication()
+  const [data, setData] = useState({
+    nome: null,
+    mail: null,
+    uid: null,
+  })
+  const { user } = useAuthValue()
 
+  useEffect(() => {
+    setData({
+      nome: user.displayName,
+      mail: user.email,
+      uid: user.uid,
+    })
+  }, [user])
 
 
 
 
   return (
-    <div style={{
-      width: '100%',
-      height: 'auto',
-      background: 'red'
+    <HomeContent>
 
-    }}>
-      <div style={{
-        width: '100%',
-        height: '400px',
-        background: 'blue',
-        color: '#fff',
-        textAlign: 'left'
-      }}>
-          <button onClick={() => logout()}>Sair</button>
+      <div className='box_conteiner'>
 
+        {/* PRIMEIRO QUADRO */}
+        <div className='banner_conteiner'>
+          <GraficoPontos />
+        </div>
 
+        {/* SEGUNDO BANNER DA HOME */}
+        <div className='banner_conteiner'>
+          <div className='content_box'>
+            <h2>
+              {data ? `Olá ${data.nome}!` : ''}
+            </h2>
+            <p>
+              {data ? `E-mail: ${data.mail}!` : ''}
+            </p>
+            {/* <p>
+              {data ? `UID: ${data.uid}!` : ''}
+            </p> */}
+
+            <div className='rakin'>
+              <div className='rakin_box'>
+                  <p>PONTOS</p>
+              </div>
+              <div className='rakin_box'>
+                    <p>80</p>
+              </div>
+
+            </div>
+
+          </div>
+          <div className='content_box'></div>
+        </div>
 
       </div>
 
-      <div style={{
-        width: '100%',
-        height: '400px',
-        background: 'black',
-        color: '#fff',
-        textAlign: 'right'
-      }}>Macaco</div>
 
-      <div style={{
-        width: '100%',
-        height: '400px',
-        background: 'orange',
-        color: '#fff',
-        textAlign: 'right'
-      }}>CACHORRO</div>
 
-      <div style={{
-        width: '100%',
-        height: '400px',
-        background: 'yellowgreen',
-        color: '#fff',
-        textAlign: 'right'
-      }}>Gato</div>
 
-      <div style={{
-        width: '100%',
-        height: '400px',
-        background: '#ccc',
-        color: '#000',
-        textAlign: 'right'
-      }}>Gato</div>
-    </div>
+
+      <div className='box_conteiner'></div>
+
+    </HomeContent>
   )
 }
 
