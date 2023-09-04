@@ -9,3 +9,7 @@ npm i lottie-web
 
 
 
+git init  
+git add .
+git commit -m "Up de dados"
+git push origin main    

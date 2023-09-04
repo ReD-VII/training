@@ -27,6 +27,8 @@ const Home = () => {
   return (
     <HomeContent>
 
+
+      {/* PRIMEIRO CONTEUDO PAGINA */}
       <div className='box_conteiner'>
 
         {/* PRIMEIRO QUADRO */}
@@ -49,10 +51,10 @@ const Home = () => {
 
             <div className='rakin'>
               <div className='rakin_box'>
-                  <p>PONTOS</p>
+                <p>PONTOS</p>
               </div>
               <div className='rakin_box'>
-                    <p>80</p>
+                <p>80</p>
               </div>
 
             </div>
@@ -66,8 +68,19 @@ const Home = () => {
 
 
 
+      {/* SEGUNDO CONTEUDO DA PAGINA HOME */}
+      <div className='box_conteiner'>
+            <div className='micro_box_conteiner'>
+            </div>
 
-      <div className='box_conteiner'></div>
+
+            <div className='micro_box_conteiner'>
+
+              
+              
+            </div>
+
+      </div>
 
     </HomeContent>
   )

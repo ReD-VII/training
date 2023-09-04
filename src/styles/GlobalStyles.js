@@ -5,8 +5,12 @@ import bgBannerHome from '../assets/svg/banner_home.svg'
 
 // HOME
 export const HomeContent = styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     width: 100%;
     height: 100%;
+    padding: 10px;
     /* overflow-x: hidden;
     overflow-y: hidden; */
     text-align: left;
@@ -25,13 +29,14 @@ export const HomeContent = styled.div`
         align-items: center;
         height: 35%;
         /* background: blueviolet; */
-
-
-
+        
+        
+        
         /* GERAL */
         .banner_conteiner{
             display: flex;
-            margin: 5px;
+            margin: 0 5px;
+            /* margin: 5px; */
             /* margin-top: 10px; */
             height: 90%;
             border-radius: 4px;
@@ -142,6 +147,30 @@ export const HomeContent = styled.div`
     .box_conteiner:nth-child(2){
         height: 65%;
         /* background: tomato; */
+
+        .micro_box_conteiner{
+            display: flex;
+            flex-direction: column;
+            margin: 0 5px;
+            height: 100%;
+            border-radius: 4px;
+
+        }
+        .micro_box_conteiner:nth-child(1){
+            width: calc(30% - 5px);
+            /* background: cadetblue; */
+
+
+        }
+        .micro_box_conteiner:nth-child(2){
+            width: calc(70% - 5px);
+            /* background: red; */
+            
+            
+            
+            
+
+        }
     }
 
 

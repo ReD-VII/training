@@ -8,10 +8,11 @@ export const ConteinerSignIn = styled.div`
     width: 100vw;
     height: 100vh;
     background: ${({ props }) => props ? props.bg : '#fff'};
-        img{
-            width: 90%;
-            margin: auto;
-        }
+    
+    img{
+        width: 90%;
+        margin: auto;
+    }
     .boxsConteiner:nth-child(1){
         display: flex;
         align-items: center;

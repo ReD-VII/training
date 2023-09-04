@@ -84,6 +84,13 @@ const Training = () => {
                         tags={'#operacional'}
                     />
                     <BoxFeedPosts
+                        link={'/recebimento'}
+                        img={imgTreiOutros2}
+                        title={'Recebimento de carga em base'}
+                        date={'Data: 25/06/2023'}
+                        tags={'#operacional'}
+                    />
+                    <BoxFeedPosts
                         img={imgTreiOutros}
                         title={'Treinamento entrega'}
                         date={'Data: 25/06/2023'}
@@ -113,12 +120,7 @@ const Training = () => {
                         date={'Data: 25/06/2023'}
                         tags={'#operacional'}
                     />
-                    <BoxFeedPosts
-                        img={imgTreiOutros2}
-                        title={'Treinamento devolução'}
-                        date={'Data: 25/06/2023'}
-                        tags={'#operacional'}
-                    />
+
                     <BoxFeedPosts
                         img={imgTreiEnt}
                         title={'Treinamento entrega'}

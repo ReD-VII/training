@@ -31,7 +31,7 @@ import ThemeContext from './context/ThemeContext';
 // Treinamentos
 import Devolucao from './pages/Training/Devolucao';
 import Entrega from './pages/Training/Entrega';
-
+import Recebimento from './pages/Training/Recebimento';
 
 
 // Context
@@ -47,6 +47,8 @@ import { onAuthStateChanged } from 'firebase/auth';
 
 // Components
 import LoadingComponent from './components/Loading';
+import Tests from './pages/Tests';
+
 
 
 
@@ -63,7 +65,7 @@ function App() {
   // USUARIO
   const [user, setUser] = useState(undefined)
   const loadingUser = user === undefined; // se "user" for igual "undefined" ele retorna TRUE
-  //Com isso o carregamento e iniciado ja que na linha 63 ele verifica se loadingUser e verdadeiro
+  //Com isso o carregamento e iniciado ja que na linha 76 ele verifica se loadingUser e verdadeiro
 
 
   useEffect(() => {
@@ -91,11 +93,13 @@ function App() {
                 <Route path='training' element={<Training />} />
                 <Route path='maps' element={<Maps />} />
                 <Route path='about' element={<About />} />
+                <Route path='tests' element={<Tests />} />
 
 
                 {/* TREINAMENTOS */}
                 <Route path='devolucao' element={<Devolucao />} />
                 <Route path='entrega' element={<Entrega />} />
+                <Route path='recebimento' element={<Recebimento />} />
 
 
                 <Route path='*' element={<NotFound />} />

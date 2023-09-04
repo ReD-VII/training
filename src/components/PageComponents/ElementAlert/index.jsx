@@ -10,7 +10,7 @@ const ElemetAlert = ({ text }) => {
         <ElementAlertConteinerStyle>
             <p>
                 <strong>
-                    <u>{text}</u>
+                    {text}
                 </strong>
             </p>
 

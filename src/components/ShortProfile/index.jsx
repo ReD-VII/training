@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext, useState } from 'react'
 import { ShortProfileConteynerStyle } from './styles'
 
 
@@ -16,7 +16,17 @@ const ShortProfile = () => {
   const currenTheme = useContext(ThemeContext)
   const { user } = useAuthValue()
   const { logout } = useAuthentication()
-  console.log(user)
+  
+  const [ userName, setUserName ] = useState(user.displayName.split(' '))
+  
+  
+
+
+
+
+
+
+
 
 
 
@@ -28,17 +38,17 @@ const ShortProfile = () => {
         </div>
         <div className='info_conteiner_profile'>
           <p>
-            <li>{user ? user.displayName : <>usuario deslogado</>}</li>
+            <li>{user ? userName[0] : <> usuario deslogado </>}</li>
           </p>
           <p>
-            <li>{user ? user.email : <>usuario deslogado</>}</li>
+            <li>{user ? user.email : <> usuario deslogado </>}</li>
           </p>
           <button
             style={{
               border: 'none',
               width: '20%',
               background: 'orange',
-              marginLeft: '5px',
+              marginTop: '5px',
               borderRadius: '4px',
               color: '#fff',
             }}

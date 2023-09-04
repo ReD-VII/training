@@ -12,6 +12,10 @@
   color: #e2e2e2;
   color: #11151d;
   color: #9b9b9b;
-  color: #ff4c4c;
+  color: #fc2f2f;
+  background: linear-gradient(45deg, rgb(138, 212, 255) 0%, rgb(255, 255, 255) 100%);
+  color: #ebebeb;
+  background: #0000008a;
+
 }
 
